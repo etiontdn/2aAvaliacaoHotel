@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FaixaHorario implements Informativo {
-    Date inicio;
-    Date fim;
+    private Date inicio;
+    private Date fim;
 
     public FaixaHorario(Date inicio, Date fim) {
         this.inicio = inicio;
@@ -15,6 +15,14 @@ public class FaixaHorario implements Informativo {
     public static String transformarLegivel(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         return sdf.format(date);
+    }
+
+    public Date getInicio() {
+        return inicio;
+    }
+
+    public Date getFim() {
+        return fim;
     }
 
     public void exibir() {
