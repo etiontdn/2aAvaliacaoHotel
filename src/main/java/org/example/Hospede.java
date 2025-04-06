@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Hospede extends Pessoa {
+//Relação de Especialização de Pessoa
+public class Hospede extends Pessoa implements Informativo {
     List<Date> entradas = new ArrayList<>();
     List<Date> saidas = new ArrayList<>();
 
@@ -18,5 +19,11 @@ public class Hospede extends Pessoa {
 
     public void sair(Date horas) {
         saidas.add(horas);
+    }
+
+    public void exibir() {
+        System.out.println(nome + " - " + cpf);
+        System.out.println("Ultima entrada: ");
+        System.out.println("Ultima saída: ");
     }
 }
