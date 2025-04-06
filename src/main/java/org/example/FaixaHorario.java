@@ -1,5 +1,6 @@
 package org.example;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -12,9 +13,20 @@ public class FaixaHorario implements Informativo {
         this.fim = fim;
     }
 
-    public static String transformarLegivel(Date date) {
+
+    // Implementação de métodos estáticos para facilitar o uso de datas.
+    public static String transformarLegivel(Date data) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        return sdf.format(date);
+        return sdf.format(data);
+    }
+
+    public static Date transformarData(String data) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            return sdf.parse(data);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Date getInicio() {

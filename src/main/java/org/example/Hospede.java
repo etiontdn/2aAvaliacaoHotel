@@ -8,6 +8,7 @@ import java.util.List;
 public class Hospede extends Pessoa implements Informativo {
     private List<Date> entradas = new ArrayList<>();
     private List<Date> saidas = new ArrayList<>();
+    private List<Reserva> reservas = new ArrayList<>();
 
     public Hospede(String nome, String cpf) {
         super(nome, cpf);
@@ -29,9 +30,25 @@ public class Hospede extends Pessoa implements Informativo {
         return saidas;
     }
 
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void adicionarReserva(Reserva r) {
+        reservas.add(r);
+    }
+
+    public void removerReserva(Reserva r) {
+        reservas.remove(r);
+    }
+
     public void exibir() {
         System.out.println(nome + " - " + cpf);
-        System.out.println("Ultima entrada: " + FaixaHorario.transformarLegivel(entradas.getLast()));
-        System.out.println("Ultima saída: " + FaixaHorario.transformarLegivel(saidas.getLast()));
+        if (!entradas.isEmpty()) {
+            System.out.println("Ultima entrada: " + FaixaHorario.transformarLegivel(entradas.getLast()));
+        }
+        if (!saidas.isEmpty()) {
+            System.out.println("Ultima saída: " + FaixaHorario.transformarLegivel(saidas.getLast()));
+        }
     }
 }

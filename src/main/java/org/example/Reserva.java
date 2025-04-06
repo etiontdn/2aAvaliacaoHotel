@@ -8,11 +8,13 @@ public class Reserva implements Informativo{
 
     public Reserva(Hospede hospede, FaixaHorario faixa) {
         this.hospede = hospede;
+        hospede.adicionarReserva(this);
         this.faixa = faixa;
     }
 
     public void exibir() {
-        System.out.println("Hóspede: " + hospede.getNome() + " reserva:");
+        System.out.println("Hóspede: " + hospede.getNome());
+        System.out.println("Reserva:");
         faixa.exibir();
     }
 
